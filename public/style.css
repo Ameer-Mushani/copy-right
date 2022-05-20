@@ -17,7 +17,7 @@
   }
   
   body {
-    background-color: darkslategrey;
+    background-color: #BDE5F4;
     margin: 0;
     padding-bottom: 3rem;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
@@ -30,7 +30,7 @@
     text-align: center;
     font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
     font-weight: bolder;
-    color: white;
+    color: #1C275C;
   }
   
   #writeMessage {
@@ -54,18 +54,9 @@
   #input:focus {
     outline: none;
   }
-  .chatRoomButton {
-    background: #333;
-    border: 2px solid black;
-    padding: 0 1rem;
-    margin: 0.25rem;
-    border-radius: 3px;
-    outline: none;
-    color: #fff;
-  }
   
   #landingPage {
-    background-color: darkslategrey;
+    background-color: #BDE5F4;
     width: 40%;
     height: 500px;
     padding-top: 10%;
@@ -80,23 +71,23 @@
     height: auto;
   }
   #nameField {
-    background-color: darkslategray;
-    color: white;
+    background-color: #BDE5F4;
+    color: #1C275C;
     width: 100%;
     font-size: 40px;
     border: none;
-    border-bottom: 2px solid whitesmoke;
+    border-bottom: 2px solid #1C275C;
     outline: none;
     margin: 10% 1.5%;
   }
   
   #roomField {
-    background-color: darkslategray;
+    background-color: #BDE5F4;
     color: white;
     width: 65%;
     font-size: 25px;
     border: none;
-    border-bottom: 2px solid whitesmoke;
+    border-bottom: 2px solid #1C275C;
     outline: none;
     margin: 0% 1.5%;
   }
@@ -110,7 +101,7 @@
     height: auto;
   }
   #chatPage {
-    background-color: rgb(40, 67, 67);
+    background-color: #BDE5F4;
     position: fixed;
     border-radius: 5%;
     top: 5%;
@@ -119,7 +110,7 @@
   }
   
   #landingPage > form > button {
-    background-color: #464646;
+    background-color: #1C275C;
     border-radius: 10px;
     border: 3px solid black;
     display: inline-block;
@@ -133,7 +124,7 @@
   
   #landingPage > form > button:hover {
     background-color: #dbdbdb;
-    color: black;
+    color: #1C275C;
   }
   
   #newRoomForm > button {
@@ -143,42 +134,4 @@
   #joinRoomForm > button {
     width: 35%;
   }
-  #leaveRoom {
-    margin-left: 5%;
-  }
-  
-  #messages {
-    list-style-type: none;
-    height: 80vh;
-    margin: 0;
-    padding: 0;
-    overflow-y: auto;
-  }
-  
-  #messages > li {
-    padding: 0.5rem 1rem;
-  }
-  #messages > li:nth-child(odd) {
-    background: #efefef;
-  }
-  
-  /*this is the place where the user's messages are styled*/
-  .message {
-    background-color: grey;
-    border: 1px solid black;
-    border-radius: 10%;
-    width: 50%;
-    margin: 5px;
-    padding: 5px;
-  }
-  .messageArea {
-    width: 100%;
-  }
-  .generalInfo {
-    font-weight: bold;
-  }
-  /*the td with time in it*/
-  .generalInfo td:nth-child(2) {
-    text-align: right;
-  }
-  
+ 
