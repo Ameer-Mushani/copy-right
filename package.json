@@ -1,0 +1,12 @@
+{
+  "name": "may-20th",
+  "version": "1.0.0",
+  "description": "uofg",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server.js",
+    "start": "node server.js"
+  },
+  "author": "Hans",
+  "license": "ISC"
+}
