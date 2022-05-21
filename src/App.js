@@ -4,6 +4,10 @@ import { motion} from "framer-motion"
 import "./App.css"
 import logo from './logo.png';
 
+
+//react form
+import List from './components/List'
+
 function App() {
   const [files, setFiles] = useState([])
 
@@ -52,17 +56,15 @@ function App() {
         Drop files here
       </motion.div>
           </td>
-          <td><div id = "fileList">{images}</div></td>
+          <td class = "inputSide">
+          <List/>
+          </td>
         </tr>
             <tr>
-              <td class = "inputSide"><input id = "inputField" placeHolder = "Enter Text" value = ""></input>      <motion.button  whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}className = "Tile">Save</motion.button>
+              <td>           
+              <div id = "fileList">{images}</div>
 </td>
                 <td>
-                <div id = "textDiv">
-            <CreateTile data = "text item 1"/>
-            <CreateTile data = "text item 2"/>
-            <CreateTile data = "text item 3"/>
-            </div>
                 </td>
               </tr>
               </table>
@@ -92,7 +94,6 @@ async function paste() {
 
 function CreateTile(props){
   return <motion.div hover whileHover={{scale:1.2}} className = "Tile" >{props.data}</motion.div>
-  
  // return <input  className = "Tile" value = {props.data} onClick={() => {navigator.clipboard.writeText(this.innerHTML)}}></input>
 }
 /*
