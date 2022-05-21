@@ -5,14 +5,21 @@
 }
 
 .dropArea{
+  text-align: bottom;
+  margin:0px auto;
   width:100%;
-  height:500px
+  height:200px;
+  background-image: url("./upload.png");
+  background-repeat: no-repeat;
+  background-size: 100px 100px;
+  background-position: center;
 }
 body{
   background-color: #C3E4F3;
 }
 .App-logo {
-  left:0px;
+  position: absolute;
+  left:25%;
   height: 10vmin;
   pointer-events: none;
 }
@@ -24,8 +31,9 @@ body{
 }
 
 .App-header {
-  background-color: #C3E4F3;
-  min-height: 10vh;
+  background-color: #7cc9ed;
+  width:100%;
+  min-height: 30%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -33,17 +41,21 @@ body{
   font-size: calc(10px + 2vmin);
   color: black;
   margin:0px auto;
+  border-bottom: 2px solid darkblue;
 }
 .body{
   width:100%
 }
+
 footer{
+  background-color: #7cc9ed;
   position: fixed;
   padding: 10px 10px 0px 10px;
-  bottom: 5%;
+  bottom: 0%;
   width: 100%;
   /* Height of the footer*/ 
-  height: 20%;
+  max-height: 20%;
+  border-top:2px solid darkblue
 }
 
 .Tile{
@@ -69,10 +81,60 @@ footer{
   height:200px;
 }
 
+#signIn{
+  vertical-align: middle;
+  position: absolute;
+  display: inline-block;
+  right:25%;
+}
 
+.googleSignIn{
+  display: inline-block;
+  background-color: #203361;
+  background-image: url("./google.png");
+  background-size: 100px 40px;
+  color: white;
+  border: none;
+  border-radius:10%;
+  width:100px;
+  height:40px;
+}
+
+table{
+  background-color: #7cc9ed;
+  width:60%;
+  border-radius:5%;
+  height:auto;
+  min-height: 60%;
+  margin:20px auto
+}
+.inputSide{
+  background-color:#4699c0;
+  padding:20px;
+  border-radius: 5%;
+}
+#inputField{
+  background-color: #7cc9ed;
+  color: black;
+  font-size: 20px;
+  border: none;
+  border-bottom: 2px solid darkblue;
+  outline: none;
+width:60%;
+height:auto;
+border-bottom: 2px solid ;
+}
+
+table>tr>td{
+  width:25%
+}
 .parentDiv{
   display: flex;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: 1rem 1rem;
+}
+.fileList{
+  font-display: flex;
+  flex-direction: column;
 }
 
 .App-link {
@@ -81,18 +143,18 @@ footer{
 
 @keyframes App-logo-bounce {
   0%{
-    transform: translateY(0px)
-  }
-  25%{
-    transform: translateY(0px)
-  }
-  60%{
     transform: translateY(-30px)
   }
+  25%{
+    transform: translateY(-30px)
+  }
+  60%{
+    transform: translateY(-50px)
+  }
   75%{
-    transform: translateY(0px)
+    transform: translateY(-30px)
   }
   100%{
-    transform: translateY(0px)
+    transform: translateY(-30px)
   }
 }
