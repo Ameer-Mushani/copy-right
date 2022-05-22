@@ -1,6 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import database from '../Firebase';
-import {getDatabase, ref, set} from 'firebase/database';
+import {ref, push} from 'firebase/database';
+import { onAuthStateChanged, getAuth } from 'firebase/auth';
+
+const auth = getAuth();
+var userId = "0";
 function ItemForm(props) {
   const [input, setInput] = useState(props.edit ? props.edit.value : '');
 
@@ -21,13 +25,24 @@ function ItemForm(props) {
       id: Math.floor(Math.random() * 10000),
       text: input
     });
-    push();
+    if(userId !== "0"){
+       pushToDb();
+    }
     setInput('');
   };
 
-  const push = () => {
+//watch for user login/logout and update user id accordingly 
+  onAuthStateChanged(auth, (user) => {
+      if(user) {
+         userId = user.uid;
+      } else {
+         //user is signed out
+         userId = "0";
+      }
+  });
+  const pushToDb = () => {
      const db = database;
-     set(ref(db, "test/data"), {
+     push(ref(db, "users/" +userId), {
       id: Math.floor(Math.random() * 10000),
       text: input
      });     
