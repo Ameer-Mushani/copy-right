@@ -59,36 +59,48 @@ function App() {
         <div>
           <img src={logo} className="App-logo" alt="logo" />
           <div id="signIn">
-            <button onClick={signInWithGoogle}> Sign in With Google </button>
+            <button className = "googleSignIn" onClick={signInWithGoogle}> Sign in With Google </button>
           </div>
         </div>
       </header>
 
-      <body>
-        <table>
-          <tr>
-            <td class="inputSide">
-              <motion.div
-                class="dropArea"
-                {...getRootProps()}
-                whileHover={{ backgroundColor: "#808080" }}
-              >
-                <input {...getInputProps()} />
-                Drop files here
-              </motion.div>
-            </td>
-            <td class="inputSide">
-              <List />
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div id="fileList">{images}</div>
-            </td>
-            <td></td>
-          </tr>
+      <div id="bodyContainer">
+        <table className="textTable">
+          <tbody>
+            <tr>
+              <td id="dropSide">
+                <table id="dropTable">
+                  <tbody>
+                  <tr>
+                    <td>
+                      <motion.div
+                        className="dropArea"
+                        {...getRootProps()}
+                        whileHover={{ backgroundColor: "#808080" }}
+                      >
+                        <input {...getInputProps()} />
+                        Drop files here
+                      </motion.div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      {" "}
+                      <div id="fileList">{images}</div>
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </td>
+              <td className="inputSide">
+                <div className = "outer"><List /></div>
+
+                
+              </td>
+            </tr>
+          </tbody>
         </table>
-      </body>
+      </div>
 
       <footer>
         <motion.button
