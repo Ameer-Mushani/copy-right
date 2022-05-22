@@ -1,9 +1,17 @@
+*{
+  font-family: 'Roboto', sans-serif;
+}
+
 .App-logo {
+  min-width: 175px;
+  min-height: 70px;
+  display: flex;
   position: absolute;
   left:15%;
-  height: 14vmin;
+  height: 3vw;
   pointer-events: none;
-  border-radius: 2%;
+  border-radius: 15px;
+  
 }
 
 .App {
@@ -11,15 +19,16 @@
   width: 100%;
   height:500px
 }
+
 body{
   background-color: #FBFBFB;
 }
 
 .dropArea{
   background-color: #a4ccd4;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-size: 20px;
-  text-align: bottom;
+  text-align: center;
+  align-items: center;
   margin:0px auto;
   width:100%;
   height:200px;
@@ -27,6 +36,7 @@ body{
   background-repeat: no-repeat;
   background-size: 100px 100px;
   background-position: center;
+  border-radius: 5px;
 }
 
 
@@ -38,15 +48,12 @@ body{
 /*App header*/
 .App-header {
   background-color: #bbbbbb;
+  display: table;
   width:100%;
-  min-height: 30%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  height: 70px;
+  padding: 10px 15px;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: black;
-  margin:0px auto;
+  align-items: center;
 }
 
 #signIn{
@@ -57,32 +64,30 @@ body{
 }
 
 .googleSignIn{
-
   display: inline-block;
-  padding:30px;
-  margin:25px;
-  margin-top:-5px;
-  font-family: 'Courier New', Courier, monospace;
+  padding:15px;
+  padding-bottom: 35px;
   font-size:20px;
+  margin-top: 10px;
   background-color: #A4CCD4;
   color: black;
   border: none;
   max-width: 300px;
-  height: 40px;
-
+  height: 30px;
+  display: flex;
+  text-align: center;
+  border-radius: 25px;
 }
 
 /*standardized tile*/
 .Tile{
   display: inline-block;
-  padding:25px;
-  margin:25px;
-  font-family: 'Courier New', Courier, monospace;
+  padding:15px;
+  margin:20px;
   font-size:20px;
   background-color: #A4CCD4;
   color: black;
   border: none;
-  max-width: 175px;
 }
 /*table and the table items*/
 .textTable{
@@ -94,17 +99,28 @@ body{
   margin:20px auto
 }
 .inputSide{
-  font-family: 'Courier New', Courier, monospace;
   background-color:#BBBBBB;
   padding:20px;
+  font-size:15px;
+  border-radius: 20px;
 }
 
 #dropSide{
   background-color:#A4CCD4;
   padding:20px;
-  border-radius: 5%;
+  border-radius: 20px;
+  margin: 0 auto;
+  align-items: center;
+  align-content: center;
 }
 
+#dropTable{
+  margin:0px auto;
+  }
+
+  #bodyContainer{
+    margin:0px auto;
+    }
 
 #inputField{
   background-color: #FBFBFB;
@@ -113,9 +129,10 @@ body{
   border: none;
   border-bottom: 2px solid darkblue;
   outline: none;
-width:60%;
-height:auto;
-border-bottom: 2px solid ;
+  width:60%;
+  height:auto;
+  border-bottom: 2px solid;
+  border-radius: 20px;
 }
 
 table>tr>td{
@@ -157,7 +174,7 @@ table>tr>td{
 .item-app {
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: flex-start;
   width: 520px;
   min-height: 600px;
   background: #161a2b;
@@ -179,16 +196,19 @@ table>tr>td{
   display: flex;
   flex-direction: row;
   position: relative;
+  font-size: 25px;
+  background: #dcecec
 }
 
 .item-input {
   padding: 14px 32px 14px 16px;
-  border-radius: 4px 0 0 4px;
+  border-radius: 25px;
   border: 2px solid #E4ECEB;
   outline: none;
   width: 320px;
   background: transparent;
   color: black;
+  font-size: 20px;
 }
 
 .item-input::placeholder {
@@ -198,9 +218,8 @@ table>tr>td{
 .item-button {
   padding: 15px;
   font-size: 18px;
-  font-family: 'Courier New', Courier, monospace;
   border: none;
-  border-radius: 0 4px 4px 0;
+  border-radius: 25px;
   cursor: pointer;
   outline: none;
   background-color: #E4ECEB;
@@ -209,15 +228,14 @@ table>tr>td{
 }
 
 .item-row {
+  background-color:#161a2b;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 4px auto;
-  color: #fff;
-
   padding: 16px;
-  border-radius: 5px;
-  width: 90%;
+  border-radius: 25px;
+  width: 80%;
 }
 
 .item-row:nth-child(n) {
@@ -234,6 +252,7 @@ table>tr>td{
   max-height: 500px;
   overflow: hidden;
   overflow-y: scroll;
+  font-size: 20px;
 }
 
 /*custom scrollbar*/
@@ -258,9 +277,6 @@ table>tr>td{
 }
 
 
-
-
-
 /*FOOTER*/
 footer{
   background-color: #BBBBBB;
@@ -269,5 +285,5 @@ footer{
   bottom: 0%;
   width: 100%;
   /* Height of the footer*/ 
-  max-height: 15%;
+  height: 70px;
 }

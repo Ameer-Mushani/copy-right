@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react';
-import database from '../Firebase';
-import { ref, set} from 'firebase/database';
+import React, { useState, useEffect, useRef } from "react";
+import database from "../Firebase";
+import { ref, set } from "firebase/database";
 function ItemForm(props) {
-  const [input, setInput] = useState(props.edit ? props.edit.value : '');
+  const [input, setInput] = useState(props.edit ? props.edit.value : "");
 
   const inputRef = useRef(null);
 
@@ -10,57 +10,57 @@ function ItemForm(props) {
     inputRef.current.focus();
   });
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     setInput(e.target.value);
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     props.onSubmit({
       id: Math.floor(Math.random() * 10000),
-      text: input
+      text: input,
     });
     push();
-    setInput('');
+    setInput("");
   };
 
   const push = () => {
-     const db = database;
-     set(ref(db, "test/data"), {
+    const db = database;
+    set(ref(db, "test/data"), {
       id: Math.floor(Math.random() * 10000),
-      text: input
-     });     
-  }
+      text: input,
+    });
+  };
 
   return (
-    <form onSubmit={handleSubmit} className='item-form'>
+    <form onSubmit={handleSubmit} className="item-form">
       {props.edit ? (
         <>
           <input
-            placeholder='Update your item'
+            placeholder="Update your item"
             value={input}
             onChange={handleChange}
-            name='text'
+            name="text"
             ref={inputRef}
-            className='item-input edit'
+            className="item-input edit"
           />
-          <button onClick={handleSubmit} className='item-button edit'>
+          <button onClick={handleSubmit} className="item-button edit">
             Update
           </button>
         </>
       ) : (
         <>
           <input
-            placeholder='Add a item'
+            placeholder="Add a item"
             value={input}
             onChange={handleChange}
-            name='text'
-            className='item-input'
+            name="text"
+            className="item-input"
             ref={inputRef}
           />
-          <button onClick={handleSubmit} className='item-button'>
-            Add item
+          <button onClick={handleSubmit} className="item-button">
+            Add
           </button>
         </>
       )}

@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
-import ItemForm from './ItemForm';
-import { RiCloseCircleLine } from 'react-icons/ri';
-import { TiEdit } from 'react-icons/ti';
+import React, { useState } from "react";
+import ItemForm from "./ItemForm";
+import { RiCloseCircleLine } from "react-icons/ri";
+import { TiEdit, TiClipboard } from "react-icons/ti";
 
 const Items = ({ items, completeItems, removeItem, updateItem }) => {
   const [edit, setEdit] = useState({
     id: null,
-    value: ''
+    value: "",
   });
 
-  const submitUpdate = value => {
+  const submitUpdate = (value) => {
     updateItem(edit.id, value);
     setEdit({
       id: null,
-      value: ''
+      value: "",
     });
   };
 
@@ -23,20 +23,28 @@ const Items = ({ items, completeItems, removeItem, updateItem }) => {
 
   return items.map((item, index) => (
     <div
-      className={item.isComplete ? 'item-row complete' : 'item-row'}
+      onClick={() => navigator.clipboard.writeText(item.text)}
+      className={item.isComplete ? "item-row complete" : "item-row"}
       key={index}
     >
       <div key={item.id} onClick={() => completeItems(item.id)}>
         {item.text}
       </div>
-      <div className='icons'>
+      <div className="icons">
         <RiCloseCircleLine
           onClick={() => removeItem(item.id)}
-          className='delete-icon'
+          className="delete-icon"
+          size={30}
         />
         <TiEdit
           onClick={() => setEdit({ id: item.id, value: item.text })}
-          className='edit-icon'
+          className="edit-icon"
+          size={30}
+        />
+        <TiClipboard
+          onClick={() => navigator.clipboard.writeText(item.text)}
+          classNmae="copy-icon"
+          size={30}
         />
       </div>
     </div>
