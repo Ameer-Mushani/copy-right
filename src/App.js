@@ -1,19 +1,32 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { gapi } from "gapi-script";
+import Login from "./components/Login";
+import Logout from "./components/Logout";
+import logo from "./logo.png";
+import List from "./components/List";
 import { useDropzone } from "react-dropzone";
 import { motion } from "framer-motion";
 import "./App.css";
-import logo from "./logo.png";
-import GoogleLogin from "react-google-login";
+
+const clientId =
+  "605094676657-7iq4mvd9tebpt5p7sd1ftoom460m98qq.apps.googleusercontent.com";
 
 //react form
-import List from "./components/List";
 
 function App() {
-  const [loginData, setLoginData] = useState(
-    localStorage.getItem("loginData")
-      ? JSON.parse(localStorage.getItem("loginData"))
-      : null
-  );
+  //update scope with API
+  useEffect(() => {
+    function start() {
+      gapi.client.init({
+        clientId: clientId,
+        scope: "",
+      });
+    }
+    gapi.load("client:auth2", start);
+  });
+
+  //if you are attempting to use APIs and they are looking for an access token, this is how you get an API access token of the user signed in
+  //var accessToken = gapi.auth.getToken().access_token;
 
   const [files, setFiles] = useState([]);
 
@@ -38,37 +51,6 @@ function App() {
     </div>
   ));
 
-  //handling login failure
-  const handleFailure = (result) => {
-    alert(result);
-  };
-
-  //handling login
-  const handleLogin = async (googleData) => {
-    //sending AJAX request
-    const res = await fetch("/api/google-login", {
-      method: "POST",
-      body: JSON.stringify({
-        token: googleData.tokenId,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-
-    const data = await res.json();
-    //setting login data state
-    setLoginData(data);
-    //set local storage based on the data from the backend
-    localStorage.setItem("loginData", JSON.stringify(data));
-  };
-
-  //handling logout
-  const handleLogout = () => {
-    localStorage.removeItem("loginData");
-    setLoginData(null);
-  };
-
   return (
     //drag and drop
     <div className="App">
@@ -76,20 +58,8 @@ function App() {
         <div>
           <img src={logo} className="App-logo" alt="logo" />
           <div id="signIn">
-            {loginData ? (
-              <div>
-                <h3> You logged in as {loginData.email}</h3>
-                <button onClick={handleLogout}>Logout</button>
-              </div>
-            ) : (
-              <GoogleLogin
-                clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID} //client ID is in the .env file. each ID is linked to a developer account and the same dev account must be used for testing
-                buttonText="Log in with Google"
-                onSuccess={handleLogin}
-                onFailure={handleFailure}
-                cookiePolicy={"single_host_origin"}
-              ></GoogleLogin>
-            )}
+            <Login />
+            <Logout />
           </div>
         </div>
       </header>
@@ -162,7 +132,7 @@ function CreateFileTile(props){
   }
   */
 
-///event listener for ctrl+v
+//event listener for ctrl+v
 document.body.addEventListener("keyup", (e) => {
   if (e.ctrlKey && e.key === "v") {
     console.log("ctrl+v is clicked");
