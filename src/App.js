@@ -59,7 +59,10 @@ function App() {
         <div>
           <img src={logo} className="App-logo" alt="logo" />
           <div id="signIn">
-            <button className = "googleSignIn" onClick={signInWithGoogle}> Sign in With Google </button>
+            <button className="googleSignIn" onClick={signInWithGoogle}>
+              {" "}
+              Sign in With Google{" "}
+            </button>
           </div>
         </div>
       </header>
@@ -71,31 +74,31 @@ function App() {
               <td id="dropSide">
                 <table id="dropTable">
                   <tbody>
-                  <tr>
-                    <td>
-                      <motion.div
-                        className="dropArea"
-                        {...getRootProps()}
-                        whileHover={{ backgroundColor: "#808080" }}
-                      >
-                        <input {...getInputProps()} />
-                        Drop files here
-                      </motion.div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      {" "}
-                      <div id="fileList">{images}</div>
-                    </td>
-                  </tr>
+                    <tr>
+                      <td>
+                        <motion.div
+                          className="dropArea"
+                          {...getRootProps()}
+                          whileHover={{ backgroundColor: "#808080" }}
+                        >
+                          <input {...getInputProps()} />
+                          Drop files here
+                        </motion.div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        {" "}
+                        <div id="fileList">{images}</div>
+                      </td>
+                    </tr>
                   </tbody>
                 </table>
               </td>
               <td className="inputSide">
-                <div className = "outer"><List /></div>
-
-                
+                <div className="outer">
+                  <List />
+                </div>
               </td>
             </tr>
           </tbody>
