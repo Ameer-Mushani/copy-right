@@ -52,29 +52,20 @@ function App() {
     </div>
   ));
 
-  var signedIn = false;
-  //watch for user login/logout and update user id accordingly
-  onAuthStateChanged(auth, async (user) => {
-    if (user) {
-      userId = user.uid;
-      signedIn = true;
-    } else {
-      //user is signed out
-      userId = "0";
-      signedIn = false;
-    }
-  });
-
   return (
     //drag and drop
     <div className="App">
       <header className="App-header">
         <div>
           <img src={logo} className="App-logo" alt="logo" />
+
+          <div>
+            <onAuthStateChanged />
+          </div>
           <div id="signIn">
             <button className="googleSignIn" onClick={signInWithGoogle}>
               {" "}
-              Sign in With Google{" "}
+              Sign in{" "}
             </button>
           </div>
         </div>
