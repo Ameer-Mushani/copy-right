@@ -52,6 +52,19 @@ function App() {
     </div>
   ));
 
+  var signedIn = false;
+  //watch for user login/logout and update user id accordingly
+  onAuthStateChanged(auth, async (user) => {
+    if (user) {
+      userId = user.uid;
+      signedIn = true;
+    } else {
+      //user is signed out
+      userId = "0";
+      signedIn = false;
+    }
+  });
+
   return (
     //drag and drop
     <div className="App">
@@ -124,34 +137,5 @@ function App() {
     </div>
   );
 }
-
-//function that takes data from the clipboard and returns the text
-/*
-async function paste() {
-  const text = await navigator.clipboard.readText();
-  return text;
-}
-*/
-
-// function CreateTile(props) {
-//   return (
-//     <motion.div hover whileHover={{ scale: 1.2 }} className="Tile">
-//       {props.data}
-//     </motion.div>
-//   );
-// return <input  className = "Tile" value = {props.data} onClick={() => {navigator.clipboard.writeText(this.innerHTML)}}></input>
-//}
-/*
-function CreateFileTile(props){
-  return <motion.div drag dragConstraints={{top: -50,left: -50,right: 600,bottom: 300,}} className = "FileTile" >{props.data}</motion.div>
-  }
-  */
-
-//event listener for ctrl+v
-document.body.addEventListener("keyup", (e) => {
-  if (e.ctrlKey && e.key === "v") {
-    console.log("ctrl+v is clicked");
-  }
-});
 
 export default App;
