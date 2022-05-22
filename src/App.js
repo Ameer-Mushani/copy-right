@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { gapi } from "gapi-script";
-import Login from "./components/Login";
-import Logout from "./components/Logout";
+//import Login from "./components/Login";
+//import Logout from "./components/Logout";
 import logo from "./logo.png";
 import List from "./components/List";
 import { useDropzone } from "react-dropzone";
 import { motion } from "framer-motion";
 import "./App.css";
+import { signInWithGoogle } from "./Firebase";
 
 const clientId =
   "605094676657-7iq4mvd9tebpt5p7sd1ftoom460m98qq.apps.googleusercontent.com";
@@ -58,8 +59,7 @@ function App() {
         <div>
           <img src={logo} className="App-logo" alt="logo" />
           <div id="signIn">
-            <Login />
-            <Logout />
+            <button onClick={signInWithGoogle}> Sign in With Google </button>
           </div>
         </div>
       </header>
