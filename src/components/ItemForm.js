@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-
+import database from '../firebase';
+import {getDatabase, ref, set} from 'firebase/database';
 function ItemForm(props) {
   const [input, setInput] = useState(props.edit ? props.edit.value : '');
 
@@ -20,8 +21,17 @@ function ItemForm(props) {
       id: Math.floor(Math.random() * 10000),
       text: input
     });
+    push();
     setInput('');
   };
+
+  const push = () => {
+     const db = database;
+     set(ref(db, "test/data"), {
+      id: Math.floor(Math.random() * 10000),
+      text: input
+     });     
+  }
 
   return (
     <form onSubmit={handleSubmit} className='item-form'>
