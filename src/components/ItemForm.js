@@ -67,7 +67,7 @@ function ItemForm(props) {
       ) : (
         <>
           <input
-            placeholder="Add a item"
+            placeholder="Add an item"
             value={input}
             onChange={handleChange}
             name="text"
