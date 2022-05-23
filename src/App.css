@@ -1,5 +1,6 @@
 *{
   font-family: 'Roboto', sans-serif;
+
 }
 
 .App-logo {
@@ -244,9 +245,6 @@ table>tr>td{
   border:1px solid black;
 }
 
-
-
-
 /*div scroll for rightside*/
 .outer{
   max-height: 500px;
@@ -258,7 +256,7 @@ table>tr>td{
 /*custom scrollbar*/
 /* width */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 5px;
 }
 
 /* Track */
@@ -281,9 +279,8 @@ table>tr>td{
 footer{
   background-color: #BBBBBB;
   position: fixed;
-  padding: 10px 10px 0px 10px;
   bottom: 0%;
   width: 100%;
   /* Height of the footer*/ 
-  height: 70px;
+  height: 80px;
 }
