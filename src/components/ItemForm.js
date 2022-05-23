@@ -5,7 +5,6 @@ import { onAuthStateChanged, getAuth } from 'firebase/auth';
 
 const auth = getAuth();
 var userId = "0";
->>>>>>> f8b005a098a7a10d215714c8843fea1b117e14d7
 function ItemForm(props) {
   const [input, setInput] = useState(props.edit ? props.edit.value : "");
 

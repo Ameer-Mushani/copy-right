@@ -59,9 +59,6 @@ function App() {
         <div>
           <img src={logo} className="App-logo" alt="logo" />
 
-          <div>
-            <onAuthStateChanged />
-          </div>
           <div id="signIn">
             <button className="googleSignIn" onClick={signInWithGoogle}>
               {" "}
