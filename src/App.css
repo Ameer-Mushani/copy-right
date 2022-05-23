@@ -38,13 +38,6 @@ body{
   background-position: center;
   border-radius: 5px;
 }
-
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-bounce infinite 2s ease-in-out;
-  }
-}
 /*App header*/
 .App-header {
   background-color: #bbbbbb;
@@ -150,24 +143,7 @@ table>tr>td{
 .App-link {
   color: #61dafb;
 }
-/*logo translation (bounce)*/
-@keyframes App-logo-bounce {
-  0%{
-    transform: translateY(-60px)
-  }
-  25%{
-    transform: translateY(-60px)
-  }
-  60%{
-    transform: translateY(-70px)
-  }
-  75%{
-    transform: translateY(-60px)
-  }
-  100%{
-    transform: translateY(-60px)
-  }
-}
+
 
 
 /*Input field and items*/
